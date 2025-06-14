@@ -5,7 +5,7 @@ library(ggpubr)
 library(readxl)
 
 # Read in file
-nordic_mastersheet <- read_xlsx("/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/NORDIC/NORDIC_behavioral_master_4.22.24.xlsx")
+nordic_mastersheet <- read_xlsx("NORDIC_behavioral_master_4.22.24.xlsx")
 print(nordic_mastersheet)
 
 # Clean data --------------------------------------------------------------
