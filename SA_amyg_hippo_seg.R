@@ -323,9 +323,9 @@ combined_hippocampus
 length(unique(combined_hippocampus$sa_id))
 
 # Write out files ---------------------------------------------------------
-write_csv(combined_all, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/combined_data_final.csv")
-write_csv(combined_amygdala, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/combined_amygdala_data_final.csv")
-write_csv(combined_hippocampus, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/combined_hippocampus_data_final.csv")
+write_csv(combined_all, "combined_data_final.csv")
+write_csv(combined_amygdala, "combined_amygdala_data_final.csv")
+write_csv(combined_hippocampus, "combined_hippocampus_data_final.csv")
 
 # Graphs ------------------------------------------------------------------
 ggplot(data = combined_hippocampus, aes(x = subregion, y = volume_size_norm, fill = method)) +
@@ -373,8 +373,8 @@ ggplot(data = combined_amygdala, aes(x = subregion, y = volume_size_norm, fill =
 
 # Analysis Setup ----------------------------------------------------------------
 # Load data
-stub <- read.csv("/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/data/AlzheimersDiseaseRes-Stub_DATA_LABELS_2024-11-15_2259.csv")
-SA_subtype <- read.csv("/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/data/results.csv")
+stub <- read.csv("AlzheimersDiseaseRes-Stub_DATA_LABELS_2024-11-15_2259.csv")
+SA_subtype <- read.csv("results.csv")
 
 # Clean stub data
 stub_clean <- stub %>%
@@ -458,12 +458,12 @@ combined_amygdala
 # Merge subtype database with hippo/amyg databases
 merged_hippo_final <- merge(combined_hippocampus, merged, by = "sa_id")
 merged_hippo_final
-writexl::write_xlsx(merged_hippo_final, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/merged_hipp_final.xlsx")
+writexl::write_xlsx(merged_hippo_final, "merged_hipp_final.xlsx")
 length(unique(merged_hippo_final$sa_id))
 
 merged_amyg_final <- merge(combined_amygdala, merged, by = "sa_id")
 merged_amyg_final
-writexl::write_xlsx(merged_amyg_final, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/merged_amyg_final.xlsx")
+writexl::write_xlsx(merged_amyg_final, "merged_amyg_final.xlsx")
 length(unique(merged_amyg_final))
 
 # Graphs -----------------------------------------------------------
@@ -765,7 +765,7 @@ leveneTest(volume_size_norm ~ method, data = merged_hippo_final)
 kruskal_result <- kruskal.test(volume_size_norm ~ method, data = merged_hippo_final)
 print(kruskal_result)
 kruskal_result_df <- do.call(cbind, kruskal_result)
-write.csv(kruskal_result_df,  "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/kruskal_results.csv")
+write.csv(kruskal_result_df,  "kruskal_results.csv")
 
 # Perform pairwise Wilcoxon tests with Bonferroni adjustment
 pairwise_result <- pairwise.wilcox.test(merged_hippo_final$volume_size_norm, 
@@ -808,7 +808,7 @@ wilcoxon_results_df$adjusted_p_value <- format(p.adjust(wilcoxon_results_df$p_va
 print(wilcoxon_results_df)
 
 # Output results
-write_csv(wilcoxon_results_df, "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/wilcoxon_results.csv")
+write_csv(wilcoxon_results_df, "wilcoxon_results.csv")
 
 # Table
 wilcoxon_poster_table <- wilcoxon_results_df %>%  # Start with original dataframe
@@ -878,7 +878,7 @@ poster_table <- wilcoxon_poster_table %>%
 
 # Save as high-resolution image
 gtsave(poster_table, 
-       filename = "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/plots/Table1_Wilcoxon_Results.png",
+       filename = "Table1_Wilcoxon_Results.png",
        zoom = 2,
        expand = 10)
 
@@ -987,7 +987,7 @@ figure1 <- ggplot(emm_df,
 print(figure1)
 
 # Save figure
-ggsave("/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/plots/poster_figure1.png", figure1, 
+ggsave("poster_figure1.png", figure1, 
        width = 18, height = 8, units = "in", dpi = 300)
 
 # Export summary of model
@@ -1044,6 +1044,6 @@ writeData(wb, "Model Summary", model_formula,
 ## Save workbook
 saveWorkbook(
   wb, 
-  file = "/Volumes/fsmresfiles/CNADC/Imaging_Core/Imaging/imaging_projects/Individuals/Joshua_Pasaye/FS_highreshippo/outputs/lm_model_summary.xlsx", 
+  file = "lm_model_summary.xlsx", 
   overwrite = TRUE
 )
