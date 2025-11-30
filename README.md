@@ -6,10 +6,10 @@ This repository hosts three independent research initiatives, each examining a d
 
 ## 📁 Projects Overview
 
-|:-------:|:------:|:-------:|
-| Project	| Title	 | Description | 
+| Project | Title | Description |
+|:-------:|:------|:------------|
 | 1️⃣ | Project A — Comparing fMRI Functional Data: NORDIC vs. Non-NORDIC | Evaluates the impact of NORDIC denoising on functional MRI quality, signal stability, and downstream analyses. |
-| 2️⃣ | Project B — Freesurfer Hippocampal Segmentation Methods |	Compares segmentation performance using different input modalities: T1-only, T2-only, T2 high-resolution (T2H), T1+T2, and T1+T2H. |
+| 2️⃣ | Project B — Freesurfer Hippocampal Segmentation Methods | Compares segmentation performance using different input modalities: T1-only, T2-only, T2 high-resolution (T2H), T1+T2, and T1+T2H. |
 | 3️⃣ | Project C — TBD | Placeholder for upcoming research project — topic and direction still in development. |
 
 Each project contains:
