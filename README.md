@@ -15,7 +15,7 @@ This repository hosts four independent research initiatives, each examining a di
 
 Each project contains:
 
-Source code and scripts.
+* Source code and scripts.
 * Dataset references or data folder.
 * Result visualizations.
 * A dedicated README.md for deeper details.
