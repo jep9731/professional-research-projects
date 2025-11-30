@@ -1,4 +1,4 @@
-# Hippocampal Segmentation Modality Comparison 🧠
+# Freesurfer Hippocampal Segmentation Modality Comparison 🧠
 
 ## Objective
 
