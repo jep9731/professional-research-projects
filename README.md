@@ -68,7 +68,7 @@ Each project’s README includes:
 
 **🧠 Project B — Hippocampal Segmentation Modalities** 
 
-* Goal: Evaluate segmentation consistency across multimodal MRI inputs
+* Goal: Evaluate segmentation consistency across Freesurfer and ASHS tools
 * Modalities compared:
     * T1-only
     * T2-only
@@ -77,7 +77,12 @@ Each project’s README includes:
     * T1 + T2H
 * Outputs: Volumetric comparisons, structural overlays, reliability metrics
 
-**🧠 Project C — TBD** 
+**🧠 Project C — Hippocampal Segmentation Modalities** 
+
+* Goal: Evaluate segmentation consistency across multimodal MRI inputs
+* Outputs: Volumetric comparisons, structural overlays, reliability metrics
+
+**🧠 Project D — TBD** 
 
 Future expansion — additional neuroimaging research planned.
 
